@@ -1,21 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6eh5goik2ctg"]
+[gd_scene load_steps=15 format=3 uid="uid://c6eh5goik2ctg"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_83cy1"]
 [ext_resource type="PackedScene" uid="uid://b8awdy5gmxl07" path="res://scenes/player.tscn" id="2_g43uo"]
+[ext_resource type="PackedScene" uid="uid://cj183vss3hdyw" path="res://scenes/bg.tscn" id="2_l6tec"]
+[ext_resource type="PackedScene" uid="uid://cibqjpv285h8v" path="res://scenes/level_2.tscn" id="2_rthcp"]
+[ext_resource type="PackedScene" uid="uid://djbc8rwdhvisl" path="res://scenes/exit.tscn" id="3_cdklv"]
 [ext_resource type="Texture2D" uid="uid://cb5qgonwgrm2a" path="res://icon.svg" id="3_g6py5"]
+[ext_resource type="PackedScene" uid="uid://boc0l2wvokqdh" path="res://scenes/jump_pad.tscn" id="4_ad0jx"]
+[ext_resource type="PackedScene" uid="uid://dkficbfhriqp1" path="res://scenes/saw.tscn" id="5_yv2vd"]
+[ext_resource type="PackedScene" uid="uid://cavxwuedola21" path="res://scenes/spike_ball.tscn" id="6_2rhji"]
+[ext_resource type="PackedScene" uid="uid://c3araa3pp4rv5" path="res://scenes/tile_map.tscn" id="7_qdg7c"]
+[ext_resource type="PackedScene" uid="uid://b65vhadkrctvm" path="res://scenes/start.tscn" id="9_u581n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7txuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3m2x"]
 size = Vector2(398, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ill0m"]
+size = Vector2(856, 21)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_83cy1")
+next_level = ExtResource("2_rthcp")
+
+[node name="BG" parent="." instance=ExtResource("2_l6tec")]
+
+[node name="Exit" parent="." instance=ExtResource("3_cdklv")]
+position = Vector2(369, 207)
 
 [node name="Player" parent="." instance=ExtResource("2_g43uo")]
 position = Vector2(232, 163)
 
 [node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-15, -448)
 physics_material_override = SubResource("PhysicsMaterial_7txuv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
@@ -24,5 +42,37 @@ scale = Vector2(3.10938, 0.125)
 texture = ExtResource("3_g6py5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(233, 178.5)
+position = Vector2(241, 177)
 shape = SubResource("RectangleShape2D_n3m2x")
+
+[node name="Deathzone" type="Area2D" parent="."]
+position = Vector2(203, 308)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(63, 0.5)
+shape = SubResource("RectangleShape2D_ill0m")
+
+[node name="Objects" type="Node2D" parent="."]
+position = Vector2(2, -15)
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("4_ad0jx")]
+position = Vector2(330, 240)
+
+[node name="Traps" type="Node2D" parent="."]
+position = Vector2(331, 230)
+
+[node name="Saw" parent="Traps" instance=ExtResource("5_yv2vd")]
+position = Vector2(79, 10)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("6_2rhji")]
+position = Vector2(-80, 3)
+
+[node name="TileMap" parent="." instance=ExtResource("7_qdg7c")]
+layer_0/tile_data = PackedInt32Array(983041, 458753, 0, 1048577, 458753, 1, 1114113, 458753, 2, 983042, 458753, 0, 1048578, 458753, 1, 1114114, 458753, 2, 983043, 458753, 0, 1048579, 458753, 1, 1114115, 458753, 2, 983044, 458753, 0, 1048580, 458753, 1, 1114116, 458753, 2, 983045, 458753, 0, 1048581, 458753, 1, 1114117, 458753, 2, 983046, 458753, 0, 1048582, 458753, 1, 1114118, 458753, 2, 983047, 458753, 0, 1114120, 458753, 2, 983049, 458753, 0, 1048585, 458753, 1, 1114121, 458753, 2, 983050, 458753, 0, 1048586, 458753, 1, 1114122, 458753, 2, 983051, 458753, 0, 1048587, 458753, 1, 1114123, 458753, 2, 983052, 458753, 0, 1048588, 458753, 1, 1114124, 458753, 2, 983053, 458753, 0, 1048589, 458753, 1, 1114125, 458753, 2, 983054, 458753, 0, 1048590, 458753, 1, 1114126, 458753, 2, 983055, 458753, 0, 1048591, 458753, 1, 1114127, 458753, 2, 983056, 458753, 0, 1048592, 458753, 1, 1114128, 458753, 2, 983057, 458753, 0, 1048593, 458753, 1, 1114129, 458753, 2, 983058, 458753, 0, 1048594, 458753, 1, 1114130, 458753, 2, 983059, 458753, 0, 1048595, 458753, 1, 1114131, 458753, 2, 983060, 458753, 0, 1048596, 458753, 1, 1114132, 458753, 2, 983061, 458753, 0, 1048597, 458753, 1, 1114133, 458753, 2, 983062, 458753, 0, 1048598, 458753, 1, 1114134, 458753, 2, 983063, 458753, 0, 1048599, 458753, 1, 1114135, 458753, 2, 983064, 458753, 0, 1048600, 458753, 1, 1114136, 458753, 2, 983065, 458753, 0, 1048601, 458753, 1, 1114137, 458753, 2, 983066, 458753, 0, 1048602, 458753, 1, 1114138, 458753, 2, 983067, 458753, 0, 1048603, 458753, 1, 1114139, 458753, 2, 983068, 458753, 0, 1048604, 458753, 1, 1114140, 458753, 2, 983069, 524289, 0, 1048605, 524289, 1, 1114141, 524289, 2, 983040, 393217, 0, 1048576, 393217, 1, 1114112, 393217, 2, 786444, 1179649, 1, 786445, 1179649, 1, 786446, 1179649, 1, 786447, 1179649, 1, 786448, 1179649, 1, 786449, 1179649, 1, 786450, 1179649, 1, 1114119, 458753, 2, 1048583, 458753, 1, 1048584, 458753, 1, 983048, 458753, 0)
+
+[node name="Start" parent="." instance=ExtResource("9_u581n")]
+position = Vector2(23, 208)
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
