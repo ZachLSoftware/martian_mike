@@ -1,7 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://cibqjpv285h8v"]
+[gd_scene load_steps=11 format=3 uid="uid://cibqjpv285h8v"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_8bvsn"]
 [ext_resource type="PackedScene" uid="uid://b8awdy5gmxl07" path="res://scenes/player.tscn" id="1_58fls"]
+[ext_resource type="PackedScene" uid="uid://bmr5upgl0q44c" path="res://scenes/level_3.tscn" id="2_45xp6"]
+[ext_resource type="PackedScene" uid="uid://cj183vss3hdyw" path="res://scenes/bg.tscn" id="3_ap2ra"]
+[ext_resource type="PackedScene" uid="uid://b65vhadkrctvm" path="res://scenes/start.tscn" id="4_4itta"]
+[ext_resource type="Texture2D" uid="uid://dmdi7vjpel0ae" path="res://assets/textures/bg/Brown.png" id="4_l2rfn"]
+[ext_resource type="PackedScene" uid="uid://deuhm56vynhx1" path="res://scenes/ui_layer.tscn" id="5_2a2em"]
+[ext_resource type="PackedScene" uid="uid://djbc8rwdhvisl" path="res://scenes/exit.tscn" id="5_iksis"]
+[ext_resource type="PackedScene" uid="uid://c3araa3pp4rv5" path="res://scenes/tile_map.tscn" id="6_vtmbp"]
+[ext_resource type="PackedScene" uid="uid://cdoe0i55mfn5j" path="res://scenes/deathzone.tscn" id="7_orx1w"]
 
 [node name="Level_2" type="Node2D"]
+script = ExtResource("1_8bvsn")
+next_level = ExtResource("2_45xp6")
+
+[node name="BG" parent="." instance=ExtResource("3_ap2ra")]
+bg_texture = ExtResource("4_l2rfn")
+
+[node name="UILayer" parent="." instance=ExtResource("5_2a2em")]
 
 [node name="Player" parent="." instance=ExtResource("1_58fls")]
+
+[node name="Start" parent="." instance=ExtResource("4_4itta")]
+position = Vector2(20, 208)
+
+[node name="Exit" parent="." instance=ExtResource("5_iksis")]
+position = Vector2(506, 209)
+
+[node name="TileMap" parent="." instance=ExtResource("6_vtmbp")]
+layer_0/tile_data = PackedInt32Array(1114144, 524289, 2, 1048608, 524289, 1, 983072, 524289, 0, 1114143, 458753, 2, 1048607, 458753, 1, 983071, 458753, 0, 1114142, 458753, 2, 1048606, 458753, 1, 983070, 458753, 0, 1114141, 458753, 2, 1048605, 458753, 1, 983069, 458753, 0, 1114140, 458753, 2, 1048604, 458753, 1, 983068, 458753, 0, 1114139, 458753, 2, 1048603, 458753, 1, 983067, 458753, 0, 1114138, 458753, 2, 1048602, 458753, 1, 983066, 458753, 0, 1114137, 458753, 2, 1048601, 458753, 1, 983065, 458753, 0, 1114136, 458753, 2, 1048600, 458753, 1, 983064, 458753, 0, 1114135, 458753, 2, 1048599, 458753, 1, 983063, 458753, 0, 1114134, 458753, 2, 1048598, 458753, 1, 983062, 458753, 0, 1114133, 458753, 2, 1048597, 458753, 1, 983061, 458753, 0, 1114132, 458753, 2, 1048596, 458753, 1, 983060, 458753, 0, 1114131, 458753, 2, 1048595, 458753, 1, 983059, 458753, 0, 1114130, 458753, 2, 1048594, 458753, 1, 983058, 458753, 0, 1114129, 458753, 2, 1048593, 458753, 1, 983057, 458753, 0, 1114128, 458753, 2, 1048592, 458753, 1, 983056, 458753, 0, 1114127, 458753, 2, 1048591, 458753, 1, 983055, 458753, 0, 1114126, 458753, 2, 1048590, 458753, 1, 983054, 458753, 0, 1114125, 458753, 2, 1048589, 458753, 1, 983053, 458753, 0, 1114124, 458753, 2, 1048588, 458753, 1, 983052, 458753, 0, 1114123, 458753, 2, 1048587, 458753, 1, 983051, 458753, 0, 1114122, 458753, 2, 1048586, 458753, 1, 983050, 458753, 0, 1114121, 458753, 2, 1048585, 458753, 1, 983049, 458753, 0, 1114120, 458753, 2, 1048584, 458753, 1, 983048, 458753, 0, 1114119, 458753, 2, 1048583, 458753, 1, 983047, 458753, 0, 1114118, 458753, 2, 1048582, 458753, 1, 983046, 458753, 0, 1114117, 458753, 2, 1048581, 458753, 1, 983045, 458753, 0, 1114116, 458753, 2, 1048580, 458753, 1, 983044, 458753, 0, 1114115, 458753, 2, 1048579, 458753, 1, 983043, 458753, 0, 1114114, 458753, 2, 1048578, 458753, 1, 983042, 458753, 0, 1114113, 458753, 2, 1048577, 458753, 1, 983041, 458753, 0, 1114112, 393217, 2, 1048576, 393217, 1, 983040, 393217, 0)
+
+[node name="Deathzone" parent="." instance=ExtResource("7_orx1w")]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmr5upgl0q44c"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_ell3s"]
+[ext_resource type="PackedScene" uid="uid://deuhm56vynhx1" path="res://scenes/ui_layer.tscn" id="2_nc44v"]
+[ext_resource type="PackedScene" uid="uid://cj183vss3hdyw" path="res://scenes/bg.tscn" id="2_uuonv"]
+[ext_resource type="Texture2D" uid="uid://b0gql83wss556" path="res://assets/textures/bg/Green.png" id="3_2k06s"]
+[ext_resource type="PackedScene" uid="uid://b8awdy5gmxl07" path="res://scenes/player.tscn" id="3_81hjm"]
+[ext_resource type="PackedScene" uid="uid://b65vhadkrctvm" path="res://scenes/start.tscn" id="4_32osd"]
+[ext_resource type="PackedScene" uid="uid://djbc8rwdhvisl" path="res://scenes/exit.tscn" id="5_7ryyg"]
+[ext_resource type="PackedScene" uid="uid://cdoe0i55mfn5j" path="res://scenes/deathzone.tscn" id="6_3xye0"]
+[ext_resource type="PackedScene" uid="uid://c3araa3pp4rv5" path="res://scenes/tile_map.tscn" id="7_0hfds"]
+
+[node name="Level_3" type="Node2D"]
+script = ExtResource("1_ell3s")
+is_final_level = true
+
+[node name="UILayer" parent="." instance=ExtResource("2_nc44v")]
+
+[node name="BG" parent="." instance=ExtResource("2_uuonv")]
+bg_texture = ExtResource("3_2k06s")
+
+[node name="Player" parent="." instance=ExtResource("3_81hjm")]
+
+[node name="Start" parent="." instance=ExtResource("4_32osd")]
+position = Vector2(20, 192)
+
+[node name="Exit" parent="." instance=ExtResource("5_7ryyg")]
+position = Vector2(159, 192)
+
+[node name="Deathzone" parent="." instance=ExtResource("6_3xye0")]
+
+[node name="TileMap" parent="." instance=ExtResource("7_0hfds")]
+layer_0/tile_data = PackedInt32Array(1048605, 524289, 2, 983069, 524289, 1, 917533, 524289, 0, 1048604, 458753, 2, 983068, 458753, 1, 917532, 458753, 0, 1048603, 458753, 2, 983067, 458753, 1, 917531, 458753, 0, 1048602, 458753, 2, 983066, 458753, 1, 917530, 458753, 0, 1048601, 458753, 2, 983065, 458753, 1, 917529, 458753, 0, 1048600, 458753, 2, 983064, 458753, 1, 917528, 458753, 0, 1048599, 458753, 2, 983063, 458753, 1, 917527, 458753, 0, 1048598, 458753, 2, 983062, 458753, 1, 917526, 458753, 0, 1048597, 458753, 2, 983061, 458753, 1, 917525, 458753, 0, 1048596, 458753, 2, 983060, 458753, 1, 917524, 458753, 0, 1048595, 458753, 2, 983059, 458753, 1, 917523, 458753, 0, 1048594, 458753, 2, 983058, 458753, 1, 917522, 458753, 0, 1048593, 458753, 2, 983057, 458753, 1, 917521, 458753, 0, 1048592, 458753, 2, 983056, 458753, 1, 917520, 458753, 0, 1048591, 458753, 2, 983055, 458753, 1, 917519, 458753, 0, 1048590, 458753, 2, 983054, 458753, 1, 917518, 458753, 0, 1048589, 458753, 2, 983053, 458753, 1, 917517, 458753, 0, 1048588, 458753, 2, 983052, 458753, 1, 917516, 458753, 0, 1048587, 458753, 2, 983051, 458753, 1, 917515, 458753, 0, 1048586, 458753, 2, 983050, 458753, 1, 917514, 458753, 0, 1048585, 458753, 2, 983049, 458753, 1, 917513, 458753, 0, 1048584, 458753, 2, 983048, 458753, 1, 917512, 458753, 0, 1048583, 458753, 2, 983047, 458753, 1, 917511, 458753, 0, 1048582, 458753, 2, 983046, 458753, 1, 917510, 458753, 0, 1048581, 458753, 2, 983045, 458753, 1, 917509, 458753, 0, 1048580, 458753, 2, 983044, 458753, 1, 917508, 458753, 0, 1048579, 458753, 2, 983043, 458753, 1, 917507, 458753, 0, 1048578, 458753, 2, 983042, 458753, 1, 917506, 458753, 0, 1048577, 458753, 2, 983041, 458753, 1, 917505, 458753, 0, 1048576, 393217, 2, 983040, 393217, 1, 917504, 393217, 0)
