@@ -66,6 +66,8 @@ func _on_deathzone_body_entered(body):
 
 
 func _on_trap_touched_player():
+	time_left = level_time
+	hud.set_time_label(time_left)
 	reset_player()
 	
 func reset_player():

@@ -77,7 +77,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k34l1"]
-size = Vector2(23, 3)
+size = Vector2(22.5, 4.5)
 
 [node name="JumpPad" type="Area2D"]
 collision_layer = 8
